@@ -7,7 +7,7 @@ export const signUp = (values) => {
             body: JSON.stringify({ ...values })
           };
           
-          fetch("http://localhost:5000/test-magiclog/us-central1/admin/sign-up", requestOptions).then(res => res.json()).then(data => {
+          fetch("https://us-central1-test-magiclog.cloudfunctions.net/admin/sign-up", requestOptions).then(res => res.json()).then(data => {
             resolve(data);
           }).catch(err => {
             console.error("Error al crear cuenta: ", err);

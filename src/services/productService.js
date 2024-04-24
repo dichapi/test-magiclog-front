@@ -7,7 +7,7 @@ export const saveProduct = (token, values) => {
             body: JSON.stringify({ ...values, price: values.price > 0 ? parseFloat(values.price) : 0, count: values.count > 0 ? parseFloat(values.count) : 0 })
           };
           
-          fetch("http://localhost:5000/test-magiclog/us-central1/admin/add-product", requestOptions).then(res => res.json()).then(data => {
+          fetch("https://us-central1-test-magiclog.cloudfunctions.net/admin/add-product", requestOptions).then(res => res.json()).then(data => {
             resolve(data);
           }).catch(err => {
             console.error("Error al guardar el producto: ", err);
@@ -23,7 +23,7 @@ export const getProducts = (token) => {
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
           };
           
-          fetch("http://localhost:5000/test-magiclog/us-central1/admin/get-products", requestOptions).then(res => res.json()).then(data => {
+          fetch("https://us-central1-test-magiclog.cloudfunctions.net/admin/get-products", requestOptions).then(res => res.json()).then(data => {
             resolve(data);
           }).catch(err => {
             console.error("Error al obtener productos: ", err);
@@ -39,7 +39,7 @@ export const getAllProducts = () => {
             headers: { 'Content-Type': 'application/json' },
           };
           
-          fetch("http://localhost:5000/test-magiclog/us-central1/admin/get-all-products", requestOptions).then(res => res.json()).then(data => {
+          fetch("https://us-central1-test-magiclog.cloudfunctions.net/admin/get-all-products", requestOptions).then(res => res.json()).then(data => {
             resolve(data);
           }).catch(err => {
             console.error("Error al obtener productos: ", err);
@@ -56,7 +56,7 @@ export const getProductsBySeller = (token, uid) => {
             body: JSON.stringify({ uid: uid })
           };
           
-          fetch("http://localhost:5000/test-magiclog/us-central1/admin/get-products-by-seller", requestOptions).then(res => res.json()).then(data => {
+          fetch("https://us-central1-test-magiclog.cloudfunctions.net/admin/get-products-by-seller", requestOptions).then(res => res.json()).then(data => {
             resolve(data);
           }).catch(err => {
             console.error("Error al obtener productos del vendedor: ", err);
